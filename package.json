@@ -1,0 +1,19 @@
+{
+  "name": "react-to-do-list",
+  "version": "1.0.0",
+  "description": "<h1>Todo List React</h1>",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vanessa-ariel/react-to-do-list.git"
+  },
+  "author": "Vanessa Ariel",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/vanessa-ariel/react-to-do-list/issues"
+  },
+  "homepage": "https://github.com/vanessa-ariel/react-to-do-list#readme"
+}
