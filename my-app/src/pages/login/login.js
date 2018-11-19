@@ -2,6 +2,7 @@ import React from 'react'
 import Form from '../../components/form'
 import Container from '../../components/container'
 import { setUser } from '../../infra/local-storage'
+import { loginUser } from '../../apis/login.api'
 
 class Login extends React.Component {
     constructor(){
@@ -28,7 +29,18 @@ class Login extends React.Component {
         const user = {
             email : inputEmail.getValue(),
             password : inputPassword.getValue()
+            
         }
+
+        loginUser(user)
+            .then((response) => {
+                setUser(user)
+                this.props.history.push('/')
+            })
+            .catch((error) =>{
+                console.log(error)
+            })
+
         setUser(user)
         this.props.history.push('/')
     }
@@ -41,7 +53,7 @@ class Login extends React.Component {
                     <Form.Label htmlFor='password'>Password</Form.Label>
                     <Form.Input ref={this.password} id='password' type='password' onChange={this.onDisabledButton} minLength={6} required/>
                     <Form.Button disabled={this.state.disabled}>Enviar</Form.Button>
-                    <Form.Link href='/conta'>Criar uma Conta</Form.Link>
+                    <Form.Link href='/signup'>Criar uma Conta</Form.Link>
                 </Form>
             </Container>
         )

@@ -31,6 +31,11 @@ class Signup extends React.Component{
         this.password = React.createRef()
         
     }
+    handleSubmit= (e) => {
+        e.preventDefault ()
+    }
+
+
     onDisabledButton = () => {
         const inputName = this.name.current
         const inputEmail = this.email.current
