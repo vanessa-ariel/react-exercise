@@ -5,6 +5,8 @@ import Signup from './index'
 
 storiesOf('Pages/Signup', module)
     .addDecorator(StoryRouter())
-    .add('default', () => (
-        <Signup/>
+    .add('default', () =>(
+       <Signup />
     ))
+
+

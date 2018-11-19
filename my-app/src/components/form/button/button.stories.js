@@ -4,9 +4,9 @@ import Button from './index'
 
 storiesOf('Components/Form/Button', module)
     .add('default', () =>(
-       <Button>Children Here</Button> //without props disabled returns false by default
+       <Button>Children Here</Button> 
     ))
-    .add('disabled', () =>(
-        <Button disabled>Children Here</Button> //with props disabled returns true by default
-    ))
-
+    .add('with disabled', () =>(
+      <Button disabled >Children Here</Button> 
+   ))
+   

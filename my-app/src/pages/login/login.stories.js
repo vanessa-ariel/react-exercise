@@ -5,6 +5,8 @@ import Login from './index'
 
 storiesOf('Pages/Login', module)
     .addDecorator(StoryRouter())
-    .add('default', () => (
-        <Login/>
+    .add('default', () =>(
+       <Login />
     ))
+
+
