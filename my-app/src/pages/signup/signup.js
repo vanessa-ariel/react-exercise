@@ -1,6 +1,8 @@
 import React from 'react'
 import Form from '../../components/form'
 import Container from '../../components/container'
+import signupUser from '../../apis/signup.api'
+import { setUser } from '../../infra/local-storage'
 
 // function Signup(){
 //     return (
@@ -32,10 +34,31 @@ class Signup extends React.Component{
         
     }
     handleSubmit= (e) => {
-        e.preventDefault ()
+
+     e.preventDefault()
+
+     const inputName = this.name.current
+     const inputEmail = this.email.current
+     const inputPhone = this.phone.current
+     const inputPassword = this.password.current
+
+     const user = {
+         name: inputName.getValue(),
+         email: inputEmail.getValue(),
+         phone: inputPhone.getValue(),
+         password: inputPassword.getValue(),
+      }
+
+      signupUser(user)
+        .then((response) => {
+            setUser({ email : user.email})
+            this.props.history.push('/')
+        })
+        .catch((error) => {
+            console.log(error)
+        })
+
     }
-
-
     onDisabledButton = () => {
         const inputName = this.name.current
         const inputEmail = this.email.current
@@ -56,7 +79,7 @@ class Signup extends React.Component{
     render(){
         return (
             <Container>
-                <Form title='Faça Seu Cadastro' text='Preencha com Seus Dados'>
+                <Form title='Faça Seu Cadastro' text='Preencha com Seus Dados' onSubmit={this.handleSubmit}>
                     <Form.Label htmlFor='name'>Nome:</Form.Label>
                     <Form.Input ref={this.name} id='name' type='text' onChange={this.onDisabledButton} required/>
                     <Form.Label htmlFor='email'>Email:</Form.Label>

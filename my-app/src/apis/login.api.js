@@ -1,13 +1,13 @@
 import api from '../infra/api-config'
 
 export function loginUser(user){
-    const url = '/users/login' //this data was assigned by the backend
+    const url = '/users/login'
 
-    const data = {
-        login: user.email,
+    const data  = {
+        email : user.email,
         password: user.password
     }
 
-return api().post(url,data)
+    return api().post(url,data)
 
-}
+ }

@@ -1,23 +1,24 @@
 import axios from 'axios'
 
+
+// axios.create( {
+//     baseUrl : 'https://lehtodoapi.herokuapp.com/',
+//     timeout: 5000,
+// }).get('/ping')
 const config = {
-    baseURL: 'https://lehtodoapi.herokuapp.com/',
-    timeout: 5000, //after this interval if API do not respond a message is displayed 
+    baseURL : 'https://lehtodoapi.herokuapp.com/',
+    timeout: 5000,
 }
 
 function api(){
-    config.headers = {
-        user: ''
-    }
     return axios.create(config)
-}
+ }
 
 export function startServer(){
-    const url = '/ping'
+    const url ='/ping'
 
-    return api().get(url) //to make a request
+    return api().get(url)
 }
 
-startServer()
-
 export default api
+

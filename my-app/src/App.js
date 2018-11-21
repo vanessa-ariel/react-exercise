@@ -6,18 +6,21 @@ import Signup from './pages/signup'
 import Home from './pages/home'
 import Navbar from './components/navbar'
 import PageNotFound from './pages/pageNotFound'
-import { startServer } from './infra/api-config'
+import { startServer  } from './infra/api-config'
 
 class App extends Component {
+  constructor(props){
+    super(props)
+  }
   render() {
-    startServer()
+   startServer()
     return (
       <React.Fragment>
-        <Navbar />
+        <Navbar history={this.props.history} />
         <Switch>
           <Route exact path='/' component={Home} />
           <Route path='/login' component={Login}/>
-          <Route path='/signup' component={Signup} />
+          <Route path='/conta' component={Signup} />
           <Route component={PageNotFound} />
         </Switch>
       </React.Fragment>

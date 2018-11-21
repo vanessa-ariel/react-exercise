@@ -29,20 +29,17 @@ class Login extends React.Component {
         const user = {
             email : inputEmail.getValue(),
             password : inputPassword.getValue()
-            
         }
 
         loginUser(user)
             .then((response) => {
-                setUser(user)
+                setUser({ email : user.email})
                 this.props.history.push('/')
-            })
-            .catch((error) =>{
+            }) 
+            .catch((error)=> {
                 console.log(error)
             })
-
-        setUser(user)
-        this.props.history.push('/')
+      
     }
     render(){
         return (
@@ -53,7 +50,7 @@ class Login extends React.Component {
                     <Form.Label htmlFor='password'>Password</Form.Label>
                     <Form.Input ref={this.password} id='password' type='password' onChange={this.onDisabledButton} minLength={6} required/>
                     <Form.Button disabled={this.state.disabled}>Enviar</Form.Button>
-                    <Form.Link href='/signup'>Criar uma Conta</Form.Link>
+                    <Form.Link href='/conta'>Criar uma Conta</Form.Link>
                 </Form>
             </Container>
         )
