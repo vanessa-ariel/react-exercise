@@ -46,7 +46,6 @@ class Input extends Component {
        
     }
     render() {
-        let classesInput = 'input'
         return (
             <React.Fragment>
                  <input 
